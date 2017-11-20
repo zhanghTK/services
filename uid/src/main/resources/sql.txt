@@ -1,0 +1,14 @@
+DROP TABLE
+IF EXISTS `uid_sequence`;
+
+CREATE TABLE `uid_sequence` (
+	`id` BIGINT (20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`stub` VARCHAR (100) NOT NULL DEFAULT '',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `stub` (`stub`)
+) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+
+# TODO 高可用分库时设置自增初始值和自增步长
+set global auto_increment_increment=2;
+set global auto_increment_offset=1;
+set global auto_increment_offset=2;
